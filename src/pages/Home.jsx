@@ -30,14 +30,14 @@ export const Home = () => {
       </Tabs>
       <Grid container spacing={4}>
         <Grid xs={8} item>
-          {(posts.items).map((obj, index) => 
+          {(isPostsLoading ? [...Array(5)] : posts.items).map((obj, index) => 
           isPostsLoading 
           ? (<Post key={index} isLoading={true}/>)
           : (
             <Post
               id={obj._id}
               title={obj.title}
-              imageUrl={obj.imageUrl ? `process.env.REACT_APP_API_URL${obj.imageUrl}` : ''}
+              imageUrl={obj.imageUrl ? `process.env.REACT_APP_API_URL/${obj.imageUrl}` : ''}
               user={obj.user}
               createdAt={obj.createdAt}
               viewsCount={obj.viewsCount}
