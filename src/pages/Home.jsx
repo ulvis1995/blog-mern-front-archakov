@@ -31,7 +31,7 @@ export const Home = () => {
       <Grid container spacing={4}>
         <Grid xs={8} item>
           {posts.items.map((obj, index) => 
-          (isPostsLoading 
+          {isPostsLoading 
           ? (<Post key={index} isLoading={true}/>)
           : (
             <Post
@@ -45,7 +45,7 @@ export const Home = () => {
               tags={obj.tags}
               isEditable={userData?._id === obj.user._id}
             />
-          )))}
+          )})}
         </Grid>
         <Grid xs={4} item>
           <TagsBlock items={tags.items} isLoading={isTagsLoading} />
